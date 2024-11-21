@@ -8,3 +8,5 @@ python ====> https://www.w3resource.com/python-exercises/list/
 
 https://medium.com/@vikasipar/understanding-redux-toolkit-a-practical-guide-with-an-e-commerce-application-938cf07d38a0
 https://freefrontend.com/bootstrap-forms/
+
+template =>>>>>> https://forms.app/en/templates/order-forms
