@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5 ml-3">
+      <h3>Book List</h3>
+      <a href="{% url 'create' %}"
+        ><button class="btn btn-success">ADD BOOK</button></a
+      >
+      <div class="container">
+      <table class="table table-bordered">
+        <tr>
+          <th>Tittle</th>
+          <th>Author</th>
+          <th>Published Date</th>
+          <th>ISBN</th>
+          <th>Price</th>
+          <th>Genre</th>
+          <th>Language</th>
+          <th>Page_count</th>
+          <th>Publisher</th>
+          <th>Bestseller</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </tr>
+        {% for dat in data %}
+        <tr>
+          <td>{{dat.title}}</td>
+          <td>{{dat.author}}</td>
+          <td>{{dat.published_date}}</td>
+          <td>{{dat.isbn}}</td>
+          <td>{{dat.price}}</td>
+          <td>{{dat.genre}}</td>
+          <td>{{dat.language}}</td>
+          <td>{{dat.page_count}}</td>
+          <td>{{dat.publisher}}</td>
+          {% if dat.is_bestseller == True %}:
+            <td>YES</td>
+          {% else %}:
+            <td>NO</td>
+          {% endif %}
+          <td>{{dat.stock_quantity}} PCS</td>
+          <td>
+            <a href="{% url 'update' dat.id %}">
+              <button class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-pen">Update</i>
+              </button>
+            </a>
+            <a href="{% url 'delete' dat.id %}">
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="fas fa-pen">Delete</i>
+              </button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
